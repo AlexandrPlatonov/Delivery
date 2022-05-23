@@ -32,6 +32,7 @@ class ProfileViewModel: ObservableObject {
         }
     }
     
+    
     func setProfile() {
         DataBaseService.shared.setProfile(user: (self.profile)) { result in
             switch result {
@@ -54,6 +55,6 @@ class ProfileViewModel: ObservableObject {
         }
         
     }
-
+    
 }
 

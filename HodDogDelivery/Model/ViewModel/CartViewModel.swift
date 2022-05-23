@@ -11,8 +11,8 @@ class CartViewModel: ObservableObject {
     
     var cost: Int {
         var sum = 0
-        for position in positions {
-            sum += position.cost
+        for pos in positions {
+            sum += pos.count
         }
         return sum
     }

@@ -7,14 +7,12 @@ struct CartView: View {
     @StateObject var viewModel: CartViewModel
     
     var body: some View {
-        
-        
         VStack {
             List(viewModel.positions) { position in
                 PositionCell(position: position)
                     .swipeActions {
                         Button {
-                            viewModel.positions.removeAll {pos in
+                            viewModel.positions.removeAll { pos in
                                 pos.id == position.id
                             }
                         } label: {
@@ -29,7 +27,7 @@ struct CartView: View {
                 Text ("Итого:")
                     .fontWeight(.bold)
                 Spacer()
-                Text("\(self.viewModel.cost) ₽")
+                Text("\(viewModel.cost)₽")
                     .fontWeight(.bold)
             }.padding()
             

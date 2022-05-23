@@ -27,7 +27,7 @@ struct ProductDetailView: View {
                     .padding(.vertical, 4)
                 
                 HStack {
-                    Stepper("Количество", value: $count, in: 1...50)
+                    Stepper("Количество", value: $count, in: 1...10)
                     Text("\(self.count)")
                         .padding(.leading)
                 }.padding(.horizontal)
@@ -58,7 +58,6 @@ struct ProductDetailView: View {
                     .cornerRadius(20)
             }
 
-            
             Spacer()
         }
         

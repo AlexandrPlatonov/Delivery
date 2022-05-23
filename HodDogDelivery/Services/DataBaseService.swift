@@ -33,6 +33,14 @@ class DataBaseService {
         }
     }
     
+    func setPositions(to orderId: String, positions: [Position], completion: @escaping (Result<[Position], Error>) -> ()) {
+        let positionsRef = orderRef.document(orderId).collection("positions")
+        for position in positions {
+            positionsRef.document(position.id).setData(position.representation)
+        }
+        completion(.success(positions))
+    }
+    
     func getOrders(by userID: String?, completion: @escaping (Result<[Order], Error>) -> ()) {
         self.orderRef.getDocuments { qSnap, error in
             
@@ -75,14 +83,6 @@ class DataBaseService {
         }
     }
     
-    func setPositions(to orderId: String, positions: [Position], completion: @escaping (Result<[Position], Error>) -> ()) {
-        let positionsRef = orderRef.document(orderId).collection("positions")
-        for position in positions {
-            positionsRef.document(position.id).setData(position.representation)
-        }
-        completion(.success(positions))
-    }
-    
     func setProfile(user: UserDefault, completion: @escaping (Result<UserDefault, Error>) -> ()) {
         usersRef.document(user.id).setData(user.representation) { error in
             if let error = error {
@@ -92,6 +92,7 @@ class DataBaseService {
             }
         }
     }
+    
     func getProfile(by userId: String? = nil, completion: @escaping (Result<UserDefault, Error>) -> ()) {
         usersRef.document(userId != nil ? userId! : AuthService.shared.currentUser!.uid).getDocument { docSnapshot, error in
             

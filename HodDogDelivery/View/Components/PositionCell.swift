@@ -24,7 +24,7 @@ struct PositionCell_Previews: PreviewProvider {
                                                                        imageUrl: "HotDog Mexica",
                                                                        price: 230,
                                                                        descript: "Действительно острый"),
-                               count: 3)
-        )
-    }
-}
+                                                                       count: 3)
+            )
+            }
+            }
