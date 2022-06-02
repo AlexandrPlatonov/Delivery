@@ -46,7 +46,7 @@ struct OrderView: View {
             ForEach (viewModel.order.positions, id: \.id) { position in
                 PositionCell(position: position)
             }
-            Text("ИтогО: \(viewModel.order.cost) ₽")
+            Text("Итого: \(viewModel.order.cost) ₽")
                 .bold()
             
         }
